@@ -64,37 +64,68 @@ class Heap:
 
     def has_left(self, i):
         """
-
-        :param i:
-        :return:
+        Returns whether or not node i has a left child
+        :param i: node to check left child of
+        :return: boolean
         """
         return self.left(i) < len(self._array)
 
     def has_right(self, i):
+        """
+        Returns whether or not node i has a right child
+        :param i: node to check right child of
+        :return: boolean
+        """
         return self.right(i) < len(self._array)
 
     def insert(self, value):
+        """
+        Creates a node with the value value and adds it to the heao
+        :param value: value to be added
+        :return: none
+        """
         self._array.append(value)
         self.upheap(len(self._array) - 1)
 
     def remove(self, value):
+        """
+        Removes the node with value value
+        :param value: value of node to be removed
+        :return: none
+        """
         value_index = self.find(value)
         if not isinstance(value_index, bool):
             self.swap(value_index, len(self._array) - 1)
-            item = self._array.pop()
+            self._array.pop()
             self.downheap(value_index)
-            return item
+            return
 
     def swap(self, i, j):
+        """
+        Swaps the elements at indices i and j of the array
+        :param i: first index
+        :param j: second index
+        :return: none
+        """
         self._array[i], self._array[j] = self._array[j], self._array[i]
 
     def upheap(self, i):
+        """
+        Moves node at index i up the tree via swaps until it is in the proper position
+        :param i: node to upheap
+        :return: none
+        """
         parent = self.parent(i)
         if i > 0 and self._array[i] < self._array[parent]:
             self.swap(i, parent)
             self.upheap(parent)
 
     def downheap(self, i):
+        """
+        Moves node at index i down the tree via swaps until it is in the proper position
+        :param i: node to downheap
+        :return: none
+        """
         if self.has_left(i):
             left = self.left(i)
             small_child = left  # although right may be smaller
@@ -107,6 +138,11 @@ class Heap:
                 self.downheap(small_child)  # recur at position of small child
 
     def find(self, value):
+        """
+        Finds the index of the node with value value
+        :param value: value to search for
+        :return: the index number or False
+        """
         for index in range(len(self._array)):
             if self._array[index] == value:
                 return index
@@ -114,6 +150,10 @@ class Heap:
         return False
 
     def remove_min(self):
+        """
+        Removes and returns the root node, then updates list so it remains a MinHeap
+        :return: value of node with min value
+        """
         self.swap(0, len(self._array) - 1)
         item = self._array.pop()
         self.downheap(0)
@@ -121,6 +161,11 @@ class Heap:
 
 
 def heapSort(unsorted):
+    """
+    Given an unsorted list, performs a Heap Sort
+    :param unsorted: list to be sorted
+    :return: sorted list
+    """
     min_tree = Heap()
     sorted_list = []
     for element in unsorted:
@@ -132,6 +177,12 @@ def heapSort(unsorted):
 
 
 def getStats(unsorted):
+    """
+    Given an unsorted list, returns a list of information in the following format:
+    [minimum val, maximum val, mean, median, mode]
+    :param unsorted: unsorted list
+    :return: list containing the information about unsorted
+    """
     sorted_list = heapSort(unsorted)
     frequency_dict = {}
     if isinstance(unsorted[0], int):
