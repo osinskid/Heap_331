@@ -1,5 +1,5 @@
 ########################################
-# PROJECT XXX - Max Heap and Sort
+# PROJECT XXX - Min Heap and Sort
 # Author:
 # PID:
 ########################################
