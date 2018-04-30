@@ -21,6 +21,13 @@ class Heap:
         """
         return str(self._array)
 
+    def __repr__(self):
+        """
+        Returns the string representation
+        :return: string representation of self
+        """
+        return str(self)
+
     ###### COMPLETE THE FUNCTIONS BELOW ######
 
     def get_size(self):
