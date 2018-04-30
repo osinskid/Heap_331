@@ -1,6 +1,5 @@
 # Driver program for students to try the default test cases
-from SOL.ProjectXX_Solution import Heap
-
+from SOL.ProjectXX_Solution import Heap, getStats, heapSort
 TEST_CASE = "\nTest Case {}:"
 
 
@@ -26,7 +25,7 @@ def test_case_2():
 
 def test_case_3():
     print(TEST_CASE.format(3))
-    info = get_stats([7,43,45,62,48,2,25,5,64,68])
+    info = getStats([7,43,45,62,48,2,25,5,64,68])
     assert(info[0] == 2)
     assert (info[1] == 68)
     assert(info[2] == (369/10))
