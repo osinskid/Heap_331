@@ -147,7 +147,7 @@ def getStats(unsorted):
         else:
             frequency_dict[element] += 1
         data_sum += element
-    for val, freq in frequency_dict:
+    for val, freq in frequency_dict.items():
         if freq > max_val:
             max_val = freq
             mode = val
@@ -159,5 +159,5 @@ def getStats(unsorted):
         ascii_total = 0
         for c in data_sum:
             ascii_total += ord(c)
-        mean = char(ascii_total // len(sorted_list))
+        mean = chr(ascii_total // len(data_sum))
     return [sorted_list[0], sorted_list[len(sorted_list) - 1], mean, sorted_list[median_i], mode]

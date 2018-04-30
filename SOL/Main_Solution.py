@@ -43,11 +43,10 @@ def test_case_4():
     info = getStats(["eijnw","nmlsn","fstyl","eseic","jpgyz","nnwql","qtjzc","jabfw","tothe","sdftu","puhoq","oaomn","zhbdl","qtjzc","ldwqm","wzwic","kyivp","bnzbh","uwmzf",])
     assert(info[0] == "bnzbh")
     assert (info[1] == "zhbdl")
-    # assert(info[2] == (w/10))
-    # assert(info[3] == 43)
-    assert(info[4] != "qtjzc")
-    print("Mean:    ", info[2])
-    print("Median:    ", info[3])
+    assert(info[2] == 'm')
+    assert(info[3] == "nwql")
+    assert(info[4] == "qtjzc")
+    print("Should have no output.")
 
 def test_case_5():
     print(TEST_CASE.format(5))
