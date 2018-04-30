@@ -11,7 +11,7 @@ def test_case_1():
     for i in range(30, -4, -3):
         test1.insert(i)
     print(test1)
-    assert(test1._array == [-3, 3, 0, 12, 6, 15, 18, 30, 21, 24, 9, 27])
+    assert(test1.array == [-3, 3, 0, 12, 6, 15, 18, 30, 21, 24, 9, 27])
     print("Test 1 Passesd")
 
 def test_case_2():
@@ -20,15 +20,15 @@ def test_case_2():
     for i in range(-50, 5, 6):
         test2.insert(i)
     print(test2)
-    assert(test2._array == [-50, -44, -38, -32, -26, -20, -14, -8, -2, 4])
+    assert(test2.array == [-50, -44, -38, -32, -26, -20, -14, -8, -2, 4])
     for i in range(7):
         test2.remove_min()
     print(test2)
-    assert(test2._array == [-8, 4, -2])
+    assert(test2.array == [-8, 4, -2])
     test2.remove(4)
     test2.remove(-50)
     print(test2)
-    assert(test2._array == [-8, -2])
+    assert(test2.array == [-8, -2])
     print("Test 2 Passed")
 
 

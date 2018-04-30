@@ -12,26 +12,40 @@ class Heap:
         Creates an empty hash table with a fixed capacity
         :param capacity: Initial size of the hash table.
         """
-        self._array = [-1] * size
-        self._capacity = len(self._array)
-        self._size = size
+        self.array = []
 
     def __str__(self):
         """
         Prints the elements in the hash table
         :return: string
         """
-        return self._array
+        return str(self.array)
+
+    def __repr__(self):
+        """
+        Returns the string representation
+        :return: string representation of self
+        """
+        return str(self)
 
     ###### COMPLETE THE FUNCTIONS BELOW ######
 
     def get_size(self):
         pass
 
-    def has_left(self):
+    def parent(self, i):
         pass
 
-    def has_right(self):
+    def left(self, i):
+        pass
+
+    def right(self, i):
+        pass
+
+    def has_left(self, i):
+        pass
+
+    def has_right(self, i):
         pass
 
     def insert(self, value):
@@ -40,20 +54,22 @@ class Heap:
     def remove(self, value):
         pass
 
-    def heapify(self):
-        pass
-
     def swap(self, i, j):
         pass
 
-    def grow(self):
+    def upheap(self, i):
         pass
 
-    def shrink(self):
+    def downheap(self, i):
         pass
+
+    def remove_min(self):
+        pass
+
 
 def heapSort(unsorted):
     pass
+
 
 def getStats(unsorted):
     pass

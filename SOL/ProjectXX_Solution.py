@@ -13,14 +13,14 @@ class Heap:
         Creates an empty hash table with a fixed capacity
         :param capacity: Initial size of the hash table.
         """
-        self._array = []
+        self.array = []
 
     def __str__(self):
         """
         Prints the elements in the hash table
         :return: string
         """
-        return str(self._array)
+        return str(self.array)
 
     def __repr__(self):
         """
@@ -36,7 +36,7 @@ class Heap:
         Returns number of items currently in the hash table
         :return: int: number of items in the hash table
         """
-        return len(self._array)
+        return len(self.array)
 
     def parent(self, i):
         """
@@ -68,7 +68,7 @@ class Heap:
         :param i: node to check left child of
         :return: boolean
         """
-        return self.left(i) < len(self._array)
+        return self.left(i) < len(self.array)
 
     def has_right(self, i):
         """
@@ -76,7 +76,7 @@ class Heap:
         :param i: node to check right child of
         :return: boolean
         """
-        return self.right(i) < len(self._array)
+        return self.right(i) < len(self.array)
 
     def insert(self, value):
         """
@@ -84,8 +84,8 @@ class Heap:
         :param value: value to be added
         :return: none
         """
-        self._array.append(value)
-        self.upheap(len(self._array) - 1)
+        self.array.append(value)
+        self.upheap(len(self.array) - 1)
 
     def remove(self, value):
         """
@@ -95,8 +95,8 @@ class Heap:
         """
         value_index = self.find(value)
         if not isinstance(value_index, bool):
-            self.swap(value_index, len(self._array) - 1)
-            self._array.pop()
+            self.swap(value_index, len(self.array) - 1)
+            self.array.pop()
             self.downheap(value_index)
             return
 
@@ -107,7 +107,7 @@ class Heap:
         :param j: second index
         :return: none
         """
-        self._array[i], self._array[j] = self._array[j], self._array[i]
+        self.array[i], self.array[j] = self.array[j], self.array[i]
 
     def upheap(self, i):
         """
@@ -116,7 +116,7 @@ class Heap:
         :return: none
         """
         parent = self.parent(i)
-        if i > 0 and self._array[i] < self._array[parent]:
+        if i > 0 and self.array[i] < self.array[parent]:
             self.swap(i, parent)
             self.upheap(parent)
 
@@ -128,14 +128,14 @@ class Heap:
         """
         if self.has_left(i):
             left = self.left(i)
-            small_child = left  # although right may be smaller
+            small_child = left
             if self.has_right(i):
                 right = self.right(i)
-                if self._array[right] < self._array[left]:
+                if self.array[right] < self.array[left]:
                     small_child = right
-            if self._array[small_child] < self._array[i]:
+            if self.array[small_child] < self.array[i]:
                 self.swap(i, small_child)
-                self.downheap(small_child)  # recur at position of small child
+                self.downheap(small_child)
 
     def find(self, value):
         """
@@ -143,8 +143,8 @@ class Heap:
         :param value: value to search for
         :return: the index number or False
         """
-        for index in range(len(self._array)):
-            if self._array[index] == value:
+        for index in range(len(self.array)):
+            if self.array[index] == value:
                 return index
 
         return False
@@ -154,8 +154,8 @@ class Heap:
         Removes and returns the root node, then updates list so it remains a MinHeap
         :return: value of node with min value
         """
-        self.swap(0, len(self._array) - 1)
-        item = self._array.pop()
+        self.swap(0, len(self.array) - 1)
+        item = self.array.pop()
         self.downheap(0)
         return item
 
