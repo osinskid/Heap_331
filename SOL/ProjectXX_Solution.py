@@ -58,7 +58,7 @@ class Heap:
 
     def remove(self, value):
         value_index = self.find(value)
-        if isinstance(value_index, int):
+        if not isinstance(value_index, bool):
             self.swap(value_index, len(self._array) - 1)
             item = self._array.pop()
             self.downheap(value_index)

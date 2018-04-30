@@ -10,13 +10,19 @@ def test_case_1():
     for i in range(30, -4, -3):
         test1.insert(i)
     print(test1)
-    for i in range(7):
-        test1.remove_min()
-    print(test1)
-
 
 def test_case_2():
     print(TEST_CASE.format(2))
+    test2 = Heap()
+    for i in range(-50, 5, 6):
+        test2.insert(i)
+    print(test2)
+    for i in range(7):
+        test2.remove_min()
+    print(test2)
+    test2.remove(4)
+    test2.remove(-50)
+    print(test2)
 
 def test_case_3():
     print(TEST_CASE.format(3))
