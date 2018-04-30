@@ -134,11 +134,12 @@ def heapSort(unsorted):
 def getStats(unsorted):
     sorted_list = heapSort(unsorted)
     frequency_dict = {}
-    data_sum = 0
     if isinstance(unsorted[0], int):
         mode = 0
+        data_sum = 0
     else:
         mode = ""
+        data_sum = ""
     max_val = 0
     for element in sorted_list:
         if element not in frequency_dict:
