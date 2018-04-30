@@ -3,7 +3,7 @@
 # Author:
 # PID:
 ########################################
-
+import math
 
 class Heap:
     # DO NOT MODIFY THIS CLASS #
@@ -124,6 +124,13 @@ def getStats(unsorted):
         if freq > max:
             max = freq
             mode = val
-    mean = sum / len(sorted)
+
     median_i = len(sorted) // 2
-    return [sorted[0], sorted[len(sorted)-1], mean, sorted[median_i], mode]
+    if isinstance(unsorted[0], int):
+        mean = sum / len(sorted)
+    else:
+        ascii_total = 0
+        for c in sum:
+            ascii_total += ord(c)
+        mean = char(ascii_total // len(sorted))
+    return [sorted[0], sorted[len(sorted) - 1], mean, sorted[median_i], mode]
