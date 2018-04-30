@@ -64,6 +64,29 @@ def test_case_5():
 
 def test_case_6():
     print(TEST_CASE.format(6))
+    test7 = Heap()
+    random.seed(1998)
+    nums = random.sample(range(0, 1000), 100)
+    for item in nums:
+        test7.insert(item)
+    print(test7.get_size())
+    assert(test7.get_size()==100)
+    print(test7.parent(10))
+    assert (test7.parent(10) == 4)
+    print(test7.left(20))
+    assert (test7.left(20) == 41)
+    print(test7.right(30))
+    assert (test7.right(30) == 62)
+    print(test7.has_left(90))
+    assert (test7.has_left(90) is False)
+    print(test7.has_right(9))
+    assert (test7.has_right(9) is True)
+    test7.insert(5)
+    test7.remove(490)
+    root = test7.remove_min()
+    print(root)
+    assert (root == 5)
+    print("Test 6 Passed.")
 
 
 def main():
@@ -72,6 +95,6 @@ def main():
     test_case_3()
     test_case_4()
     test_case_5()
-    # test_case_6()
+    test_case_6()
 
 main()
