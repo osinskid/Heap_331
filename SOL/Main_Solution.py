@@ -1,5 +1,7 @@
 # Driver program for students to try the default test cases
 from SOL.ProjectXX_Solution import Heap, getStats, heapSort
+import random
+
 TEST_CASE = "\nTest Case {}:"
 
 
@@ -46,6 +48,12 @@ def test_case_4():
 
 def test_case_5():
     print(TEST_CASE.format(5))
+    random.seed(2018)
+    test6 = random.sample(range(0, 100), 24)
+    print("Original: " + str(test6))
+    sorted_list = heapSort(test6)
+    print("Sorted: " + str(sorted_list))
+    assert (sorted_list == [2, 3, 4, 5, 8, 15, 16, 30, 38, 51, 55, 58, 64, 67, 68, 70, 77, 80, 81, 85, 87, 90, 94, 99])
 
 def test_case_6():
     print(TEST_CASE.format(6))
@@ -54,8 +62,8 @@ def main():
     # test_case_1()
     # test_case_2()
     # test_case_3()
-    test_case_4()
-    # test_case_5()
+    # test_case_4()
+    test_case_5()
     # test_case_6()
 
 main()
