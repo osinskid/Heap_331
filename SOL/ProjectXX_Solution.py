@@ -106,6 +106,7 @@ def getStats(unsorted):
     dict = {}
     sum = 0
     mode = 0
+    max = 0
     for element in sorted:
         if element not in dict:
             dict[element] = 0
@@ -113,8 +114,9 @@ def getStats(unsorted):
             dict[element] += 1
         sum += element
     for val, freq in dict:
-        if freq > mode:
-            mode = freq
+        if freq > max:
+            max = freq
+            mode = val
     mean = sum / len(sorted)
     median_i = len(sorted) // 2
     return [sorted[0], sorted[len(sorted)-1], mean, sorted[median_i], mode]
