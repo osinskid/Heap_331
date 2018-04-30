@@ -26,6 +26,13 @@ def test_case_2():
 
 def test_case_3():
     print(TEST_CASE.format(3))
+    info = get_stats([7,43,45,62,48,2,25,5,64,68])
+    assert(info[0] == 2)
+    assert (info[1] == 68)
+    assert(info[2] == (369/10))
+    assert(info[3] == 43)
+    assert(info[4] != 0)
+    print("Should have no output.")
 
 def test_case_4():
     print(TEST_CASE.format(5))
