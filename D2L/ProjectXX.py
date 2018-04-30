@@ -26,7 +26,7 @@ class Heap:
     ###### COMPLETE THE FUNCTIONS BELOW ######
 
     def get_size(self):
-
+        pass
 
     def has_left(self):
         pass
