@@ -5,6 +5,7 @@
 ########################################
 import math
 
+
 class Heap:
     # DO NOT MODIFY THIS CLASS #
     def __init__(self, size=0):
@@ -76,14 +77,14 @@ class Heap:
     def downheap(self, i):
         if self.has_left(i):
             left = self.left(i)
-            small_child = left               # although right may be smaller
+            small_child = left  # although right may be smaller
             if self.has_right(i):
                 right = self.right(i)
                 if self._array[right] < self._array[left]:
                     small_child = right
             if self._array[small_child] < self._array[i]:
                 self.swap(i, small_child)
-                self.downheap(small_child)    # recur at position of small child
+                self.downheap(small_child)  # recur at position of small child
 
     def find(self, value):
         for index in range(len(self._array)):
@@ -98,42 +99,44 @@ class Heap:
         self.downheap(0)
         return item
 
+
 def heapSort(unsorted):
     min_tree = Heap()
-    sorted = []
+    sorted_list = []
     for element in unsorted:
         min_tree.insert(element)
     size = min_tree.get_size()
     for i in range(0, size):
-        sorted.append(min_tree.remove_min())
-    return sorted
+        sorted_list.append(min_tree.remove_min())
+    return sorted_list
+
 
 def getStats(unsorted):
-    sorted = heapSort(unsorted)
-    dict = {}
-    sum = 0
+    sorted_list = heapSort(unsorted)
+    frequency_dict = {}
+    data_sum = 0
     if isinstance(unsorted[0], int):
         mode = 0
     else:
         mode = ""
-    max = 0
-    for element in sorted:
-        if element not in dict:
-            dict[element] = 0
+    max_val = 0
+    for element in sorted_list:
+        if element not in frequency_dict:
+            frequency_dict[element] = 0
         else:
-            dict[element] += 1
-        sum += element
-    for val, freq in dict:
-        if freq > max:
-            max = freq
+            frequency_dict[element] += 1
+        data_sum += element
+    for val, freq in frequency_dict:
+        if freq > max_val:
+            max_val = freq
             mode = val
 
-    median_i = len(sorted) // 2
+    median_i = len(sorted_list) // 2
     if isinstance(unsorted[0], int):
-        mean = sum / len(sorted)
+        mean = data_sum / len(sorted_list)
     else:
         ascii_total = 0
-        for c in sum:
+        for c in data_sum:
             ascii_total += ord(c)
-        mean = char(ascii_total // len(sorted))
-    return [sorted[0], sorted[len(sorted) - 1], mean, sorted[median_i], mode]
+        mean = char(ascii_total // len(sorted_list))
+    return [sorted_list[0], sorted_list[len(sorted_list) - 1], mean, sorted_list[median_i], mode]
