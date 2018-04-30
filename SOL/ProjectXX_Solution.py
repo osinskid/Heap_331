@@ -112,7 +112,10 @@ def getStats(unsorted):
     sorted = heapSort(unsorted)
     dict = {}
     sum = 0
-    mode = 0
+    if isinstance(unsorted[0], int):
+        mode = 0
+    else:
+        mode = ""
     max = 0
     for element in sorted:
         if element not in dict:
