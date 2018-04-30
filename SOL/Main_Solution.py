@@ -10,20 +10,23 @@ def test_case_1():
     test1 = Heap()
     for i in range(30, -4, -3):
         test1.insert(i)
-    print(test1)
+    assert(test1 == [-3, 3, 0, 12, 6, 15, 18, 30, 21, 24, 9, 27])
+    print("Test 1 Passesd")
 
 def test_case_2():
     print(TEST_CASE.format(2))
     test2 = Heap()
     for i in range(-50, 5, 6):
         test2.insert(i)
-    print(test2)
+    assert(test2 == [-50, -44, -38, -32, -26, -20, -14, -8, -2, 4])
     for i in range(7):
         test2.remove_min()
-    print(test2)
+    assert(test2 == [-8, 4, -2])
     test2.remove(4)
     test2.remove(-50)
-    print(test2)
+    assert(test2 == [-8, -2])
+    print("Test 2 Passed")
+
 
 def test_case_3():
     print(TEST_CASE.format(3))
@@ -49,18 +52,20 @@ def test_case_4():
 def test_case_5():
     print(TEST_CASE.format(5))
     random.seed(2018)
-    test6 = random.sample(range(0, 100), 24)
-    print("Original: " + str(test6))
+    test6 = random.sample(range(0, 10000), 5000)
     sorted_list = heapSort(test6)
-    print("Sorted: " + str(sorted_list))
-    assert (sorted_list == [2, 3, 4, 5, 8, 15, 16, 30, 38, 51, 55, 58, 64, 67, 68, 70, 77, 80, 81, 85, 87, 90, 94, 99])
+    test6.sort()
+    correct_list = test6
+    assert (sorted_list == correct_list)
+    print("Test 5 Passed")
 
 def test_case_6():
     print(TEST_CASE.format(6))
 
+
 def main():
-    # test_case_1()
-    # test_case_2()
+    test_case_1()
+    test_case_2()
     # test_case_3()
     # test_case_4()
     test_case_5()
