@@ -36,7 +36,7 @@ def test_case_3():
     assert(info[2] == (369/10))
     assert(info[3] == 43)
     assert(info[4] != 0)
-    print("Should have no output.")
+    print("Test 3 Passed.")
 
 def test_case_4():
     print(TEST_CASE.format(4))
@@ -46,7 +46,7 @@ def test_case_4():
     assert(info[2] == 'm')
     assert(info[3] == "nwql")
     assert(info[4] == "qtjzc")
-    print("Should have no output.")
+    print("Test 4 Passed.")
 
 def test_case_5():
     print(TEST_CASE.format(5))
