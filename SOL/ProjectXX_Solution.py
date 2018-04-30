@@ -19,7 +19,7 @@ class Heap:
         Prints the elements in the hash table
         :return: string
         """
-        return self._array
+        return str(self._array)
 
     ###### COMPLETE THE FUNCTIONS BELOW ######
 
@@ -92,7 +92,29 @@ class Heap:
         return item
 
 def heapSort(unsorted):
-    pass
+    min_tree = Heap()
+    sorted = []
+    for element in unsorted:
+        min_tree.insert(element)
+    size = min_tree.get_size()
+    for i in range(0, size):
+        sorted.append(min_tree.remove_min())
+    return sorted
 
 def getStats(unsorted):
-    pass
+    sorted = heapSort(unsorted)
+    dict = {}
+    sum = 0
+    mode = 0
+    for element in sorted:
+        if element not in dict:
+            dict[element] = 0
+        else:
+            dict[element] += 1
+        sum += element
+    for val, freq in dict:
+        if freq > mode:
+            mode = freq
+    mean = sum / len(sorted)
+    median_i = len(sorted) // 2
+    return [sorted[0], sorted[len(sorted)-1], mean, sorted[median_i], mode]
