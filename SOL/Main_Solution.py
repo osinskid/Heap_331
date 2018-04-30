@@ -10,7 +10,8 @@ def test_case_1():
     test1 = Heap()
     for i in range(30, -4, -3):
         test1.insert(i)
-    assert(str(test1) == "[-3, 3, 0, 12, 6, 15, 18, 30, 21, 24, 9, 27]")
+    print(test1)
+    assert(test1._array == [-3, 3, 0, 12, 6, 15, 18, 30, 21, 24, 9, 27])
     print("Test 1 Passesd")
 
 def test_case_2():
@@ -18,13 +19,16 @@ def test_case_2():
     test2 = Heap()
     for i in range(-50, 5, 6):
         test2.insert(i)
-    assert(str(test2) == "[-50, -44, -38, -32, -26, -20, -14, -8, -2, 4]")
+    print(test2)
+    assert(test2._array == [-50, -44, -38, -32, -26, -20, -14, -8, -2, 4])
     for i in range(7):
         test2.remove_min()
-    assert(str(test2) == "[-8, 4, -2]")
+    print(test2)
+    assert(test2._array == [-8, 4, -2])
     test2.remove(4)
     test2.remove(-50)
-    assert(str(test2) == "[-8, -2]")
+    print(test2)
+    assert(test2._array == [-8, -2])
     print("Test 2 Passed")
 
 
@@ -34,17 +38,17 @@ def test_case_3():
     assert(info[0] == 2)
     assert (info[1] == 68)
     assert(info[2] == (369/10))
-    assert(info[3] == 43)
+    assert(info[3] == 45)
     assert(info[4] != 0)
     print("Test 3 Passed.")
 
 def test_case_4():
     print(TEST_CASE.format(4))
-    info = getStats(["eijnw","nmlsn","fstyl","eseic","jpgyz","nnwql","qtjzc","jabfw","tothe","sdftu","puhoq","oaomn","zhbdl","qtjzc","ldwqm","wzwic","kyivp","bnzbh","uwmzf",])
+    info = getStats(["eijnw","nmlsn","fstyl","eseic","jpgyz","nnwql","qtjzc","jabfw","tothe","sdftu","puhoq","oaomn","zhbdl","qtjzc","ldwqm","wzwic","kyivp","bnzbh","uwmzf"])
     assert(info[0] == "bnzbh")
     assert (info[1] == "zhbdl")
     assert(info[2] == 'm')
-    assert(info[3] == "nwql")
+    assert(info[3] == "nnwql")
     assert(info[4] == "qtjzc")
     print("Test 4 Passed.")
 
@@ -56,7 +60,7 @@ def test_case_5():
     test6.sort()
     correct_list = test6
     assert (sorted_list == correct_list)
-    print("Test 5 Passed")
+    print("Test 5 Passed.")
 
 def test_case_6():
     print(TEST_CASE.format(6))
@@ -65,8 +69,8 @@ def test_case_6():
 def main():
     test_case_1()
     test_case_2()
-    # test_case_3()
-    # test_case_4()
+    test_case_3()
+    test_case_4()
     test_case_5()
     # test_case_6()
 
