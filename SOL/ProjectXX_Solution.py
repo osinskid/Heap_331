@@ -39,15 +39,35 @@ class Heap:
         return len(self._array)
 
     def parent(self, i):
+        """
+        Returns the index of the parent of node at index i
+        :param i: node to find the parent of
+        :return: index of parent node
+        """
         return (i - 1) // 2
 
     def left(self, i):
+        """
+        Returns the index of the left child of node at index i
+        :param i: node to find the left child of
+        :return: index of left child
+        """
         return 2 * i + 1
 
     def right(self, i):
+        """
+        Returns the index of the right child of node at index i
+        :param i: node to find the right child of
+        :return: node of the right child
+        """
         return 2 * i + 2
 
     def has_left(self, i):
+        """
+
+        :param i:
+        :return:
+        """
         return self.left(i) < len(self._array)
 
     def has_right(self, i):
@@ -122,7 +142,7 @@ def getStats(unsorted):
     max_val = 0
     for element in sorted_list:
         if element not in frequency_dict:
-            frequency_dict[element] = 0
+            frequency_dict[element] = 1
         else:
             frequency_dict[element] += 1
         data_sum += element
